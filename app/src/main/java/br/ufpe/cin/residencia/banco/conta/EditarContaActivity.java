@@ -1,5 +1,7 @@
 package br.ufpe.cin.residencia.banco.conta;
 
+import static android.content.ContentValues.TAG;
+
 import br.ufpe.cin.residencia.banco.R;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -7,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -31,7 +34,6 @@ public class EditarContaActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         String numeroConta = intent.getStringExtra(KEY_NUMERO_CONTA);
-        //TODO usar o número da conta passado via Intent para recuperar informações da conta
         viewModel.buscarPeloNumero(numeroConta);
 
         viewModel.contaAtual.observe( this, conta -> {

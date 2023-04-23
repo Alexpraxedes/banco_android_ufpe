@@ -33,22 +33,22 @@ public class ContaRepository {
         dao.remover(c);
     }
 
-    List<Conta> ListarContas() {
+    public List<Conta> ListarContas() {
         return dao.contas().getValue();
     }
 
     @WorkerThread
-    List<Conta> buscarPeloNome(String nomeCliente) {
+    public List<Conta> buscarPeloNome(String nomeCliente) {
         return dao.buscarPeloNome(nomeCliente);
     }
 
     @WorkerThread
-    List<Conta> buscarPeloCPF(String cpfCliente) {
+    public List<Conta> buscarPeloCPF(String cpfCliente) {
         return dao.buscarPeloCPF(cpfCliente);
     }
 
     @WorkerThread
-    Conta buscarPeloNumero(String numeroConta) {
+    public Conta buscarPeloNumero(String numeroConta) {
         return dao.buscarPeloNumero(numeroConta);
     }
 }

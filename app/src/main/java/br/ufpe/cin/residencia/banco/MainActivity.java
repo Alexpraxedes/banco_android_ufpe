@@ -1,16 +1,21 @@
 package br.ufpe.cin.residencia.banco;
 
+import static android.content.ContentValues.TAG;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
 
 import java.text.NumberFormat;
+import java.util.List;
 
 import br.ufpe.cin.residencia.banco.cliente.ClientesActivity;
+import br.ufpe.cin.residencia.banco.conta.Conta;
 import br.ufpe.cin.residencia.banco.conta.ContasActivity;
 
 //Ver anotações TODO no código
@@ -53,5 +58,4 @@ public class MainActivity extends AppCompatActivity {
                 v -> startActivity(new Intent(this, PesquisarActivity.class))
         );
     }
-    //TODO Neste arquivo ainda falta a atualização automática do valor total de dinheiro armazenado no banco
 }

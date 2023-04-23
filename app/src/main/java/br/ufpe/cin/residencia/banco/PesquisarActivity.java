@@ -37,11 +37,22 @@ public class PesquisarActivity extends AppCompatActivity {
                 v -> {
                     String oQueFoiDigitado = aPesquisar.getText().toString();
                     //TODO implementar a busca de acordo com o tipo de busca escolhido pelo usuário
+                    if (tipoPesquisa.getCheckedRadioButtonId() == R.id.peloNomeCliente) {
+                        viewModel.buscarPeloNome(oQueFoiDigitado);
+                    } else if (tipoPesquisa.getCheckedRadioButtonId() == R.id.peloNumeroConta) {
+                        viewModel.buscarPeloNumero(oQueFoiDigitado);
+                    } else if (tipoPesquisa.getCheckedRadioButtonId() == R.id.peloCPFcliente){
+                        viewModel.buscarPeloCPF(oQueFoiDigitado);
+                    } else {
+                        Log.e("PesquisarActivity", "Nenhum tipo de pesquisa foi selecionado");
+                    }
                 }
         );
 
         //TODO atualizar o RecyclerView com resultados da busca na medida que encontrar
-
+        viewModel.contas.observe(this, contas -> {
+            adapter.submitList(contas);
+        });
 
     }
 }

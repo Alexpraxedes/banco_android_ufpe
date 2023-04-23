@@ -37,7 +37,17 @@ public class DebitarActivity extends AppCompatActivity {
                     String numOrigem = numeroContaOrigem.getText().toString();
                     //TODO lembrar de implementar validação do número da conta e do valor da operação, antes de efetuar a operação de débito.
                     // O método abaixo está sendo chamado, mas precisa ser implementado na classe BancoViewModel para funcionar.
-                    double valor = Double.valueOf(valorOperacao.getText().toString());
+                    if (numOrigem.isEmpty()) {
+                        numeroContaOrigem.setError("Número da conta não pode ser vazio");
+                        return;
+                    }
+
+                    if (valorOperacao.getText().toString().isEmpty()) {
+                        valorOperacao.setError("Valor da operação não pode ser vazio");
+                        return;
+                    }
+
+                    double valor = Double.parseDouble(valorOperacao.getText().toString());
                     viewModel.debitar(numOrigem, valor);
                     finish();
                 }
