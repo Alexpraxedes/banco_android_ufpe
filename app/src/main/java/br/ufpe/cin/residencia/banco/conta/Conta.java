@@ -4,6 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.util.List;
+
 //ESTA CLASSE NAO PRECISA SER MODIFICADA!
 @Entity(tableName = "contas")
 public class Conta {

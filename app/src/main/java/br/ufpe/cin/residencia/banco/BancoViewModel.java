@@ -18,7 +18,7 @@ import br.ufpe.cin.residencia.banco.conta.ContaRepository;
 public class BancoViewModel extends AndroidViewModel {
     private ContaRepository repository;
     public LiveData<List<Conta>> contas;
-    private MutableLiveData<Conta> _contaAtual = new MutableLiveData<>();
+    private MutableLiveData<Conta> _contas = new MutableLiveData<>();
 
     public BancoViewModel(@NonNull Application application) {
         super(application);
@@ -60,22 +60,22 @@ public class BancoViewModel extends AndroidViewModel {
     void buscarPeloNome(String nomeCliente) {
         new Thread( () -> {
             List<Conta> contas = this.repository.buscarPeloNome(nomeCliente);
-            _contaAtual.postValue(contas.get(0));
+            contas.toArray();
         } );
     }
 
     void buscarPeloCPF(String cpfCliente) {
         new Thread( () -> {
             List<Conta> contas = this.repository.buscarPeloCPF(cpfCliente);
-            _contaAtual.postValue(contas.get(0));
-        } );
+            contas.toArray();
+        } ).start();
     }
 
     void buscarPeloNumero(String numeroConta) {
         new Thread( () -> {
             List<Conta> contas = (List<Conta>) this.repository.buscarPeloNumero(numeroConta);
-            _contaAtual.postValue(contas.get(0));
-        } );
+            contas.toArray();
+        } ).start();
     }
 
 }

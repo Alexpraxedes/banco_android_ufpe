@@ -41,9 +41,9 @@ public class ContaAdapter extends ListAdapter<Conta, ContaViewHolder> {
             @Override
             public boolean areContentsTheSame(@NonNull Conta oldItem, @NonNull Conta newItem) {
                 return oldItem.nomeCliente.equals(newItem.nomeCliente) &&
-                        oldItem.cpfCliente.equals(newItem.cpfCliente) &&
-                        oldItem.numero.equals(newItem.numero) &&
-                        oldItem.saldo == newItem.saldo;
+                    oldItem.cpfCliente.equals(newItem.cpfCliente) &&
+                    oldItem.numero.equals(newItem.numero) &&
+                    oldItem.saldo == newItem.saldo;
             }
         };
 }

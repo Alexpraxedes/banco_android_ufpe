@@ -24,15 +24,21 @@ public class ContaViewModel extends AndroidViewModel {
     }
 
     void inserir(Conta c) {
-        new Thread( () -> repository.inserir(c) ).start();
+        new Thread(
+            () -> repository.inserir(c)
+        ).start();
     }
 
     void atualizar(Conta c) {
-        new Thread( () ->  this.repository.atualizar(c) );
+        new Thread(
+            () -> this.repository.atualizar(c)
+        ).start();
     }
 
     void remover(Conta c) {
-        new Thread( () ->  this.repository.remover(c) );
+        new Thread(
+            () -> this.repository.remover(c)
+        ).start();
     }
 
     void listar() {
@@ -40,27 +46,27 @@ public class ContaViewModel extends AndroidViewModel {
             List<Conta> contas = this.repository.getContas().getValue();
             assert contas != null;
             _contaAtual.postValue(contas.get(0));
-        } );
+        });
     }
 
     void buscarPeloNome(String nomeCliente) {
         new Thread( () -> {
             List<Conta> contas = this.repository.buscarPeloNome(nomeCliente);
             _contaAtual.postValue(contas.get(0));
-        } );
+        }).start();
     }
 
     void buscarPeloCPF(String cpfCliente) {
         new Thread( () -> {
             List<Conta> contas = this.repository.buscarPeloCPF(cpfCliente);
             _contaAtual.postValue(contas.get(0));
-        } );
+        }).start();
     }
 
     void buscarPeloNumero(String numeroConta) {
         new Thread( () -> {
-            Conta c = this.repository.buscarPeloNumero(numeroConta);
-            _contaAtual.postValue(c);
-        });
+            List<Conta> contas = this.repository.buscarPeloNumero(numeroConta);
+            _contaAtual.postValue(contas.get(0));
+        }).start();
     }
 }

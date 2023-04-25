@@ -25,7 +25,7 @@ public interface ContaDAO {
     LiveData<List<Conta>> contas();
 
     @Query("SELECT * FROM contas WHERE numero = :numeroConta")
-    Conta buscarPeloNumero(String numeroConta);
+    List<Conta>buscarPeloNumero(String numeroConta);
 
     @Query("SELECT * FROM contas WHERE nomeCliente LIKE :nomeCliente")
     List<Conta> buscarPeloNome(String nomeCliente);

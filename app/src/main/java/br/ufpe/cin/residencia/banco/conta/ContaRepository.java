@@ -48,7 +48,7 @@ public class ContaRepository {
     }
 
     @WorkerThread
-    public Conta buscarPeloNumero(String numeroConta) {
+    public List<Conta> buscarPeloNumero(String numeroConta) {
         return dao.buscarPeloNumero(numeroConta);
     }
 }
