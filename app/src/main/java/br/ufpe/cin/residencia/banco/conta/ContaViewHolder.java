@@ -32,7 +32,7 @@ public class ContaViewHolder extends RecyclerView.ViewHolder {
     @SuppressLint("SetTextI18n")
     void bindTo(Conta conta) {
         this.nomeCliente.setText(conta.nomeCliente);
-        this.infoConta.setText(conta.numero + " | " + "Saldo atual: R$" + NumberFormat.getCurrencyInstance().format(conta.saldo));
+        this.infoConta.setText(conta.numero + " | " + "Saldo atual: R" + NumberFormat.getCurrencyInstance().format(conta.saldo));
         if(conta.saldo < 0)
             this.icone.setImageResource(R.drawable.delete);
         else

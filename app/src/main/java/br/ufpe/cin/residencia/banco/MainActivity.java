@@ -57,5 +57,13 @@ public class MainActivity extends AppCompatActivity {
         pesquisar.setOnClickListener(
                 v -> startActivity(new Intent(this, PesquisarActivity.class))
         );
+
+        viewModel.contas.observe(
+            this,
+                listaContas -> {
+                    double saldoBanco = viewModel.saldoTotalBanco();
+                    totalBanco.setText("R"+NumberFormat.getCurrencyInstance().format(saldoBanco));
+                }
+        );
     }
 }

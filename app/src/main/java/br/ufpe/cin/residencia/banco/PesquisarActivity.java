@@ -1,6 +1,7 @@
 package br.ufpe.cin.residencia.banco;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -24,7 +25,6 @@ public class PesquisarActivity extends AppCompatActivity {
     BancoViewModel viewModel;
     ContaAdapter adapter;
 
-    @SuppressLint("NonConstantResourceId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,11 +51,13 @@ public class PesquisarActivity extends AppCompatActivity {
                             viewModel.buscarPeloNome(oQueFoiDigitado);
                             Toast.makeText(this, "Busca realizada por nome", Toast.LENGTH_SHORT).show();
                             break;
+
                         case R.id.peloCPFcliente:
                             //TODO implementar a busca por CPF
                             viewModel.buscarPeloCPF(oQueFoiDigitado);
                             Toast.makeText(this, "Busca realizada por CPF", Toast.LENGTH_SHORT).show();
                             break;
+
                         case R.id.peloNumeroConta:
                             //TODO implementar a busca por número
                             viewModel.buscarPeloNumero(oQueFoiDigitado);
@@ -69,8 +71,8 @@ public class PesquisarActivity extends AppCompatActivity {
         );
 
         //TODO atualizar o RecyclerView com resultados da busca na medida que encontrar
-        //viewModel.contas.observe(this, conta -> {
-        //    adapter.submitList(conta);
-        //});
+        viewModel.listaContasAtual.observe(this, contas -> {
+            adapter.submitList(contas);
+        });
     }
 }

@@ -20,9 +20,21 @@ public class BancoViewModel extends AndroidViewModel {
     public LiveData<List<Conta>> contas;
     private MutableLiveData<Conta> _contas = new MutableLiveData<>();
 
+    private MutableLiveData<List<Conta>> __listaContasAtual = new MutableLiveData<>();
+    public LiveData<List<Conta>> listaContasAtual = __listaContasAtual;
+
     public BancoViewModel(@NonNull Application application) {
         super(application);
         this.repository = new ContaRepository(BancoDB.getDB(application).contaDAO());
+        this.contas = repository.getContas();
+    }
+
+    public double saldoTotalBanco() {
+        double saldoTotal = 0;
+        for (Conta conta : this.contas.getValue()) {
+            saldoTotal += conta.saldo;
+        }
+        return saldoTotal;
     }
 
     void transferir(String numeroContaOrigem, String numeroContaDestino, double valor) {
@@ -61,7 +73,7 @@ public class BancoViewModel extends AndroidViewModel {
         new Thread( () -> {
             List<Conta> contas = this.repository.buscarPeloNome(nomeCliente);
             contas.toArray();
-        } );
+        } ).start();
     }
 
     void buscarPeloCPF(String cpfCliente) {
@@ -73,7 +85,7 @@ public class BancoViewModel extends AndroidViewModel {
 
     void buscarPeloNumero(String numeroConta) {
         new Thread( () -> {
-            List<Conta> contas = (List<Conta>) this.repository.buscarPeloNumero(numeroConta);
+            List<Conta> contas = this.repository.buscarPeloNumero(numeroConta);
             contas.toArray();
         } ).start();
     }

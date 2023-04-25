@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import br.ufpe.cin.residencia.banco.conta.Conta;
+
 //Ver anotações TODO no código
 public class TransferirActivity extends AppCompatActivity {
 
@@ -38,6 +40,21 @@ public class TransferirActivity extends AppCompatActivity {
                     // O método abaixo está sendo chamado, mas precisa ser implementado na classe BancoViewModel para funcionar.
                     if (numOrigem.isEmpty()) {
                         numeroContaOrigem.setError("Número da conta não pode ser vazio");
+                        return;
+                    }
+
+                    if (Double.parseDouble(valorOperacao.getText().toString()) <= 0) {
+                        valorOperacao.setError("Valor da operação não pode ser menor que zero");
+                        return;
+                    }
+
+                    if (valorOperacao.getText().toString().isEmpty()) {
+                        valorOperacao.setError("Valor da operação não pode ser vazio");
+                        return;
+                    }
+
+                    if (numOrigem.equals(numDestino)) {
+                        numeroContaDestino.setError("Número da conta destino não pode ser igual ao número da conta origem");
                         return;
                     }
 
