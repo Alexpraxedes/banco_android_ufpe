@@ -20,8 +20,8 @@ public class BancoViewModel extends AndroidViewModel {
     public LiveData<List<Conta>> contas;
     private MutableLiveData<Conta> _contas = new MutableLiveData<>();
 
-    private MutableLiveData<List<Conta>> __listaContasAtual = new MutableLiveData<>();
-    public LiveData<List<Conta>> listaContasAtual = __listaContasAtual;
+    private MutableLiveData<List<Conta>> _listaContasAtual = new MutableLiveData<>();
+    public LiveData<List<Conta>> listaContasAtual = _listaContasAtual;
 
     public BancoViewModel(@NonNull Application application) {
         super(application);
@@ -71,22 +71,22 @@ public class BancoViewModel extends AndroidViewModel {
 
     void buscarPeloNome(String nomeCliente) {
         new Thread( () -> {
-            List<Conta> contas = this.repository.buscarPeloNome(nomeCliente);
-            contas.toArray();
+            List<Conta> listaContas = this.repository.buscarPeloNome(nomeCliente);
+            _listaContasAtual.postValue(listaContas);
         } ).start();
     }
 
     void buscarPeloCPF(String cpfCliente) {
         new Thread( () -> {
-            List<Conta> contas = this.repository.buscarPeloCPF(cpfCliente);
-            contas.toArray();
+            List<Conta> listaContas = this.repository.buscarPeloCPF(cpfCliente);
+            _listaContasAtual.postValue(listaContas);
         } ).start();
     }
 
     void buscarPeloNumero(String numeroConta) {
         new Thread( () -> {
-            List<Conta> contas = this.repository.buscarPeloNumero(numeroConta);
-            contas.toArray();
+            List<Conta> listaContas = this.repository.buscarPeloNumero(numeroConta);
+            _listaContasAtual.postValue(listaContas);
         } ).start();
     }
 

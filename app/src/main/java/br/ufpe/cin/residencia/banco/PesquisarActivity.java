@@ -1,23 +1,16 @@
 package br.ufpe.cin.residencia.banco;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import br.ufpe.cin.residencia.banco.conta.Conta;
 import br.ufpe.cin.residencia.banco.conta.ContaAdapter;
 
 //Ver anotações TODO no código
@@ -72,6 +65,11 @@ public class PesquisarActivity extends AppCompatActivity {
 
         //TODO atualizar o RecyclerView com resultados da busca na medida que encontrar
         viewModel.listaContasAtual.observe(this, contas -> {
+            if (contas.isEmpty()) {
+                Toast.makeText(this, "Nenhum resultado encontrado", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "Resultado encontrado", Toast.LENGTH_SHORT).show();
+            }
             adapter.submitList(contas);
         });
     }
