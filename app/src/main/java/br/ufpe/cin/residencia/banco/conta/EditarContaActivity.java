@@ -7,6 +7,7 @@ import br.ufpe.cin.residencia.banco.R;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -78,7 +79,10 @@ public class EditarContaActivity extends AppCompatActivity {
             v -> {
                 Conta conta = viewModel.contaAtual.getValue();
                 viewModel.remover(conta);
-                finish();
+
+                Context context = getApplicationContext();
+                Intent newIntent = new Intent(context, ContasActivity.class);
+                context.startActivity(newIntent);
             }
         );
     }
