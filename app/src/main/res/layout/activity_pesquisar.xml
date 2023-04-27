@@ -2,52 +2,77 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="7dp"
-    android:orientation="vertical">
+    android:background="@color/background"
+    android:orientation="vertical"
+    android:padding="16dp">
 
-    <EditText
-        android:id="@+id/pesquisa"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:hint="Digite algum termo para pesquisar" />
+        android:orientation="vertical"
+        android:background="@drawable/shape_white"
+        android:padding="8dp">
 
-    <RadioGroup
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/tipoPesquisa"
-        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_search_value"
+            android:textColor="@color/primary"
+            android:textSize="12sp" />
+
+        <EditText
+            android:id="@+id/pesquisa"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Digite algum termo para pesquisar" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_search_radio"
+            android:textColor="@color/primary"
+            android:layout_marginTop="12dp"
+            android:textSize="12sp" />
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tipoPesquisa"
+            android:orientation="horizontal">
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:layout_margin="3dp"
+                    android:id="@+id/peloNomeCliente"
+                    android:text="@string/text_radio_name" />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:id="@+id/peloCPFcliente"
+                    android:text="@string/text_radio_cpf" />
+
             <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:checked="true"
-                android:layout_margin="3dp"
-                android:id="@+id/peloNomeCliente"
-                android:text="Nome" />
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="3dp"
-                android:id="@+id/peloCPFcliente"
-                android:text="CPF" />
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="3dp"
                 android:id="@+id/peloNumeroConta"
-                android:text="Número da Conta" />
-    </RadioGroup>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:layout_marginBottom="12dp"
+                android:text="@string/text_radio_account" />
+        </RadioGroup>
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/btn_Pesquisar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:text="Pesquisar" />
+        android:text="@string/text_button_search" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvResultado"
-        android:layout_margin="3dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

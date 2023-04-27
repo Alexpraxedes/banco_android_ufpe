@@ -2,20 +2,29 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="7dp"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="12dp">
+
+    <TextView
+        android:id="@+id/tipoOperacao"
+        android:layout_width="368dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="@string/title_add_account"
+        android:textAlignment="center"
+        android:textColor="@color/neutral"
+        android:textSize="20sp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvContas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp" />
 
     <Button
         android:id="@+id/btn_Adiciona"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:text="Adicionar Conta" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvContas"
-        android:layout_margin="3dp"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
+        android:text="@string/text_button_add_account" />
 </LinearLayout>

@@ -33,10 +33,10 @@ public class ContaViewHolder extends RecyclerView.ViewHolder {
     void bindTo(Conta conta) {
         this.nomeCliente.setText(conta.nomeCliente);
         this.infoConta.setText(conta.numero + " | " + "Saldo atual: R" + NumberFormat.getCurrencyInstance().format(conta.saldo));
-        if(conta.saldo < 0)
-            this.icone.setImageResource(R.drawable.delete);
+        if(conta.saldo <= 0)
+            this.icone.setImageResource(R.drawable.negative_balance);
         else
-            this.icone.setImageResource(R.drawable.ok);
+            this.icone.setImageResource(R.drawable.positive_balance);
         this.addListener(conta.numero);
     }
 

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 //Ver anotações TODO no código
@@ -22,11 +23,13 @@ public class DebitarActivity extends AppCompatActivity {
         EditText numeroContaOrigem = findViewById(R.id.numeroContaOrigem);
         TextView labelContaDestino = findViewById(R.id.labelContaDestino);
         EditText numeroContaDestino = findViewById(R.id.numeroContaDestino);
+        LinearLayout campoContaDestino = findViewById(R.id.fieldForgetAccount);
         EditText valorOperacao = findViewById(R.id.valor);
         Button btnOperacao = findViewById(R.id.btnOperacao);
 
         labelContaDestino.setVisibility(View.GONE);
         numeroContaDestino.setVisibility(View.GONE);
+        campoContaDestino.setVisibility(View.GONE);
 
         valorOperacao.setHint(valorOperacao.getHint() + " debitado");
         tipoOperacao.setText("DEBITAR");

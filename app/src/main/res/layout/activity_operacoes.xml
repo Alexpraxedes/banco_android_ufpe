@@ -3,74 +3,105 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="5dp">
+    android:background="@color/background"
+    android:padding="16dp">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/tipoOperacao"
+        android:layout_width="368dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
         android:text="TIPO DA OPERAÇÃO"
-        android:textSize="32sp"
-        android:layout_margin="5dp" />
+        android:textAlignment="center"
+        android:textColor="@color/neutral"
+        android:textSize="20sp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Número da Conta Origem"
-        android:textSize="24sp" />
-
-    <EditText
-        android:id="@+id/numeroContaOrigem"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:inputType="number"
-        android:fontFamily="sans-serif-light"
-        android:hint="Digite o número da conta"
-        android:minHeight="48dp"
-        android:textSize="18sp" />
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="12dp"
+        android:padding="8dp"
+        android:background="@drawable/shape_white"
+        android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/labelContaDestino"
-        android:text="Número da Conta Destino"
-        android:textSize="24sp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_origin_account_number"
+            android:textColor="@color/primary"
+            android:textSize="12sp" />
 
-    <EditText
-        android:id="@+id/numeroContaDestino"
+        <EditText
+            android:id="@+id/numeroContaOrigem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:fontFamily="sans-serif-light"
+            android:hint="@string/text_input_origin_account_number"
+            android:minHeight="48dp"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/fieldForgetAccount"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:inputType="number"
-        android:fontFamily="sans-serif-light"
-        android:hint="Digite o número da conta"
-        android:minHeight="48dp"
-        android:textSize="18sp" />
+        android:layout_marginBottom="12dp"
+        android:padding="8dp"
+        android:background="@drawable/shape_white"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/labelContaDestino"
+            android:text="@string/label_forget_account_number"
+            android:textColor="@color/primary"
+            android:textSize="12sp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Valor"
-        android:textSize="24sp" />
+        <EditText
+            android:id="@+id/numeroContaDestino"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:fontFamily="sans-serif-light"
+            android:hint="@string/text_input_forget_account_number"
+            android:minHeight="48dp"
+            android:textSize="16sp" />
+    </LinearLayout>
 
-    <EditText
-        android:id="@+id/valor"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:inputType="numberDecimal"
-        android:fontFamily="sans-serif-light"
-        android:hint="Digite o valor a ser "
-        android:minHeight="48dp"
-        android:textSize="18sp" />
+        android:layout_marginBottom="12dp"
+        android:padding="8dp"
+        android:background="@drawable/shape_white"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_value_transaction"
+            android:textColor="@color/primary"
+            android:textSize="12sp" />
+
+        <EditText
+            android:id="@+id/valor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:fontFamily="sans-serif-light"
+            android:hint="@string/text_input_value_transaction"
+            android:minHeight="48dp"
+            android:textSize="16sp" />
+    </LinearLayout>
 
     <Button
         android:id="@+id/btnOperacao"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:text="Realizar Operação"
+        android:layout_marginTop="24dp"
+        android:text="@string/text_button_transaction"
         android:textColor="#FFFFFF" />
 
 </LinearLayout>

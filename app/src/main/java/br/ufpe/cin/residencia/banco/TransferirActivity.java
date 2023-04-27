@@ -23,7 +23,6 @@ public class TransferirActivity extends AppCompatActivity {
 
         TextView tipoOperacao = findViewById(R.id.tipoOperacao);
         EditText numeroContaOrigem = findViewById(R.id.numeroContaOrigem);
-        TextView labelContaDestino = findViewById(R.id.labelContaDestino);
         EditText numeroContaDestino = findViewById(R.id.numeroContaDestino);
         EditText valorOperacao = findViewById(R.id.valor);
         Button btnOperacao = findViewById(R.id.btnOperacao);

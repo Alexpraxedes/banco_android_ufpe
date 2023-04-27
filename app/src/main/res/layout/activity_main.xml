@@ -1,73 +1,432 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="5dp"
-    android:orientation="vertical" >
+    android:background="@color/background"
+    android:padding="16dp">
 
-    <Button
-        android:id="@+id/btnContas"
+    <RelativeLayout
+        android:id="@+id/rl_top"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Contas"
-        android:layout_margin="3dp"
-        android:textSize="24sp"
-    >
-    </Button>
-    <Button
-        android:id="@+id/btnTransferir"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Transferir"
-        android:layout_margin="3dp"
-        android:textSize="24sp">
-    </Button>
-    <Button
-        android:id="@+id/btnDebitar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Debitar"
-        android:layout_margin="3dp"
-        android:textSize="24sp">
-    </Button>
-    <Button
-        android:id="@+id/btnCreditar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Creditar"
-        android:layout_margin="3dp"
-        android:textSize="24sp">
-    </Button>
-    <Button
-        android:id="@+id/btnPesquisar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Pesquisar"
-        android:layout_margin="3dp"
-        android:textSize="24sp">
-    </Button>
-    <Button
-        android:id="@+id/btnClientes"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Clientes"
-        android:layout_margin="3dp"
-        android:textSize="24sp">
-    </Button>
+        android:layout_height="42dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="16dp">
 
-    <TextView
+        <ImageView
+            android:id="@+id/img_user"
+            android:layout_width="32dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/ic_user_circle_24" />
+
+        <TextView
+            android:id="@+id/name_user"
+            android:layout_width="match_parent"
+            android:layout_height="28dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_toEndOf="@+id/img_user"
+            android:text="Nome do usuário"
+            android:textColor="@color/neutral"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:id="@+id/img_settings"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="101dp"
+            android:layout_marginTop="9dp"
+            android:layout_marginBottom="9dp"
+            android:background="@color/cardview_light_background"
+            android:color="@color/neutral"
+            android:src="@drawable/ic_settings_24" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_card_info"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:text="Total no Banco:"
-        android:textSize="26sp" />
+        android:layout_height="130dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/shape_primary"
+        android:padding="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rl_top"
+        tools:layout_editor_absoluteX="16dp">
 
-    <TextView
+        <TextView
+            android:id="@+id/text_title_bank_balance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/title_bank_balance"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/totalDinheiroBanco"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_title_bank_balance"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="8dp"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            tools:text="R$ 100.000,00" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/totalDinheiroBanco"
+            android:layout_alignStart="@+id/totalDinheiroBanco"
+            android:layout_alignEnd="@+id/totalDinheiroBanco"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="8dp"
+            android:paddingHorizontal="16dp">
+
+            <RelativeLayout
+                android:id="@+id/rl_total_clients"
+                android:layout_width="52dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="40dp">
+                <TextView
+                    android:id="@+id/text_total_clients"
+                    android:layout_width="40dp"
+                    android:layout_height="25dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginHorizontal="8dp"
+                    android:layout_marginStart="6dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="6dp"
+                    android:background="@drawable/shape_secondary"
+                    android:paddingVertical="5dp"
+                    android:textAlignment="center"
+                    android:textColor="@color/neutral_light"
+                    android:textSize="12sp"
+                    tools:text="72" />
+                <TextView
+                    android:id="@+id/title_total_clients"
+                    android:layout_width="match_parent"
+                    android:layout_height="14dp"
+                    android:layout_below="@+id/text_total_clients"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginEnd="0dp"
+                    android:layout_marginBottom="0dp"
+                    android:text="@string/title_clients"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="8sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_total_accounts"
+                android:layout_width="52dp"
+                android:layout_height="match_parent"
+                android:layout_alignStart="@+id/rl_total_clients"
+                android:layout_alignEnd="@+id/rl_total_transactions">
+                <TextView
+                    android:id="@+id/text_total_accounts"
+                    android:layout_width="40dp"
+                    android:layout_height="25dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="6dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="6dp"
+                    android:background="@drawable/shape_secondary"
+                    android:paddingVertical="5dp"
+                    android:textAlignment="center"
+                    android:textColor="@color/neutral_light"
+                    android:textSize="12sp"
+                    tools:text="72" />
+                <TextView
+                    android:id="@+id/title_total_accounts"
+                    android:layout_width="match_parent"
+                    android:layout_height="14dp"
+                    android:layout_below="@+id/text_total_accounts"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginEnd="0dp"
+                    android:layout_marginBottom="0dp"
+                    android:text="@string/title_accounts"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="8sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_total_transactions"
+                android:layout_width="52dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:layout_marginLeft="32dp"
+                android:layout_marginEnd="40dp">
+                <TextView
+                    android:id="@+id/text_total_transactions"
+                    android:layout_width="40dp"
+                    android:layout_height="25dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginHorizontal="8dp"
+                    android:layout_marginStart="6dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="6dp"
+                    android:background="@drawable/shape_secondary"
+                    android:paddingVertical="5dp"
+                    android:textAlignment="center"
+                    android:textColor="@color/neutral_light"
+                    android:textSize="12sp"
+                    tools:text="72" />
+                <TextView
+                    android:id="@+id/title_total_transactions"
+                    android:layout_width="match_parent"
+                    android:layout_height="14dp"
+                    android:layout_below="@+id/text_total_transactions"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginEnd="0dp"
+                    android:layout_marginBottom="0dp"
+                    android:text="@string/title_transactions"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="8sp" />
+            </RelativeLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_card_transactions"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:id="@+id/totalDinheiroBanco"
-        android:textSize="30sp" />
+        android:layout_height="108dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rl_card_info">
 
+        <TextView
+            android:id="@+id/text_title_transactions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/title_transactions"
+            android:textColor="@color/neutral"
+            android:textSize="12sp" />
 
-</LinearLayout>
+        <RelativeLayout
+            android:id="@+id/rl_list_transactions"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/text_title_transactions"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="16dp">
+
+            <RelativeLayout
+                android:id="@+id/rl_transfer_money"
+                android:layout_width="64dp"
+                android:layout_marginStart="16dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="40dp">
+                <ImageView
+                    android:id="@+id/btn_transfer"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_marginStart="3dp"
+                    android:background="@drawable/shape_btn_secondary"
+                    android:padding="10dp"
+                    android:src="@drawable/ic_transfer" />
+                <TextView
+                    android:id="@+id/title_transfer"
+                    android:layout_width="match_parent"
+                    android:layout_height="14dp"
+                    android:layout_below="@+id/btn_transfer"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginEnd="0dp"
+                    android:layout_marginBottom="0dp"
+                    android:text="@string/title_transaction_transfer"
+                    android:textAlignment="center"
+                    android:textColor="@color/neutral_dark"
+                    android:textSize="10sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_credit_money"
+                android:layout_width="137dp"
+                android:layout_height="71dp"
+                android:layout_marginStart="28dp"
+                android:layout_marginEnd="42dp"
+                android:layout_toStartOf="@+id/rl_debit_money"
+                android:layout_toEndOf="@+id/rl_transfer_money">
+
+                <ImageView
+                    android:id="@+id/btn_credit_money"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/shape_btn_secondary"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="12dp"
+                    android:src="@drawable/ic_credit" />
+
+                <TextView
+                    android:id="@+id/title_credit_money"
+                    android:layout_width="match_parent"
+                    android:layout_height="14dp"
+                    android:layout_below="@+id/btn_credit_money"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginEnd="0dp"
+                    android:layout_marginBottom="0dp"
+                    android:text="@string/title_transaction_credit"
+                    android:textAlignment="center"
+                    android:textColor="@color/neutral_dark"
+                    android:textSize="10sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_debit_money"
+                android:layout_width="52dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:layout_marginLeft="32dp"
+                android:layout_marginEnd="40dp">
+                <ImageView
+                    android:id="@+id/btn_debit_money"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:background="@drawable/shape_btn_secondary"
+                    android:paddingTop="12dp"
+                    android:paddingBottom="8dp"
+                    android:src="@drawable/ic_debit" />
+                <TextView
+                    android:id="@+id/title_request_money"
+                    android:layout_width="match_parent"
+                    android:layout_height="14dp"
+                    android:layout_below="@+id/btn_debit_money"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginEnd="0dp"
+                    android:layout_marginBottom="0dp"
+                    android:text="@string/title_transaction_debit"
+                    android:textAlignment="center"
+                    android:textColor="@color/neutral_dark"
+                    android:textSize="10sp" />
+            </RelativeLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/rl_actions"
+        android:layout_width="match_parent"
+        android:layout_height="393dp"
+        android:layout_marginTop="24dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rl_card_transactions">
+
+        <LinearLayout
+            android:id="@+id/btn_clients"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/shape_white"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/img_clients"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:background="@drawable/shape_white"
+                android:padding="10dp"
+                android:src="@drawable/ic_clients" />
+
+            <TextView
+                android:id="@+id/title_clients"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginBottom="0dp"
+                android:text="@string/title_clients"
+                android:textColor="@color/secondary_dark"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btn_accounts"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/shape_white"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/img_accounts"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:background="@drawable/shape_white"
+                android:padding="10dp"
+                android:src="@drawable/ic_accounts" />
+
+            <TextView
+                android:id="@+id/title_accounts"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginBottom="0dp"
+                android:text="@string/title_accounts"
+                android:textColor="@color/secondary_dark"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btn_search"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/shape_white"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/img_search"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:background="@drawable/shape_white"
+                android:padding="10dp"
+                android:src="@drawable/ic_search" />
+
+            <TextView
+                android:id="@+id/title_search"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginBottom="0dp"
+                android:text="@string/title_asearch"
+                android:textColor="@color/secondary_dark"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

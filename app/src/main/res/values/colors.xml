@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="background">#F9F9F9</color>
+
+    <color name="primary">#FF182C</color>
+    <color name="primary_dark">#B2111F</color>
+    <color name="primary_light">#FFB7BE</color>
+
+    <color name="secondary">#DBE5FE</color>
+    <color name="secondary_dark">#8E98A8</color>
+
+    <color name="neutral">#2E3E4B</color>
+    <color name="neutral_dark">#1C252D</color>
+    <color name="neutral_light">#BEC3C7</color>
+
     <color name="red_cin">#DB1D30</color>
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>

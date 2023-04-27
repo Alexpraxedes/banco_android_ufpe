@@ -3,80 +3,125 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="5dp">
+    android:background="@color/background"
+    android:padding="16dp">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/tipoOperacao"
+        android:layout_width="368dp"
         android:layout_height="wrap_content"
-        android:text="Número da Conta"
-        android:textSize="24sp" />
+        android:layout_margin="5dp"
+        android:text="@string/title_insert_account"
+        android:textAlignment="center"
+        android:textColor="@color/neutral"
+        android:textSize="20sp" />
 
-    <EditText
-        android:id="@+id/numero"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:inputType="number"
-        android:fontFamily="sans-serif-light"
-        android:hint="Digite o número da conta"
-        android:minHeight="48dp"
-        android:textSize="18sp" />
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="12dp"
+        android:padding="8dp"
+        android:background="@drawable/shape_white"
+        android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Nome"
-        android:textSize="24sp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_account_number"
+            android:textColor="@color/primary"
+            android:textSize="12sp" />
 
-    <EditText
-        android:id="@+id/nome"
+        <EditText
+            android:id="@+id/numero"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:fontFamily="sans-serif-light"
+            android:hint="@string/text_input_account_number"
+            android:minHeight="48dp"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:fontFamily="sans-serif-light"
-        android:hint="Digite um nome"
-        android:minHeight="48dp"
-        android:textSize="18sp" />
+        android:layout_marginBottom="12dp"
+        android:padding="8dp"
+        android:background="@drawable/shape_white"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_name_client"
+            android:textColor="@color/primary"
+            android:textSize="12sp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="CPF"
-        android:textSize="24sp" />
-    <EditText
-        android:id="@+id/cpf"
+        <EditText
+            android:id="@+id/nome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-light"
+            android:hint="@string/text_input_name_client"
+            android:minHeight="48dp"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:fontFamily="sans-serif-light"
-        android:hint="Digite um CPF"
-        android:inputType="numberDecimal"
-        android:minHeight="48dp"
-        android:textSize="18sp" />
+        android:layout_marginBottom="12dp"
+        android:padding="8dp"
+        android:background="@drawable/shape_white"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_cpf_client"
+            android:textColor="@color/primary"
+            android:textSize="12sp" />
+        <EditText
+            android:id="@+id/cpf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-light"
+            android:hint="@string/text_input_cpf_client"
+            android:inputType="numberDecimal"
+            android:minHeight="48dp"
+            android:textSize="16sp" />
+    </LinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Saldo"
-        android:textSize="24sp" />
-
-    <EditText
-        android:id="@+id/saldo"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:inputType="numberDecimal"
-        android:fontFamily="sans-serif-light"
-        android:hint="Digite o saldo"
-        android:minHeight="48dp"
-        android:textSize="18sp" />
+        android:layout_marginBottom="12dp"
+        android:padding="8dp"
+        android:background="@drawable/shape_white"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_initial_balance"
+            android:textColor="@color/primary"
+            android:textSize="12sp" />
+
+        <EditText
+            android:id="@+id/saldo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:fontFamily="sans-serif-light"
+            android:hint="@string/text_input_initial_balance"
+            android:minHeight="48dp"
+            android:textSize="16sp" />
+    </LinearLayout>
 
     <Button
         android:id="@+id/btnAtualizar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:text="Atualizar"
+        android:text="@string/text_button_update"
         android:textColor="#FFFFFF" />
 
     <Button
@@ -84,7 +129,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:text="Remover"
+        android:text="@string/text_button_delete"
         android:textColor="#FFFFFF" />
 
 </LinearLayout>

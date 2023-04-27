@@ -1,3 +1,43 @@
 <resources>
-    <string name="app_name">Banco</string>
+    <string name="app_name">CIN BANK</string>
+    <string name="title_bank_balance">Saldo total do banco</string>
+    <string name="title_accounts">Contas</string>
+    <string name="title_transactions">Transações</string>
+    <string name="title_clients">Clientes</string>
+
+    <string name="title_transaction_transfer">Transferência</string>
+    <string name="title_transaction_credit">Creditar</string>
+    <string name="title_transaction_debit">Debitar</string>
+    <string name="title_asearch">Buscar conta</string>
+
+    <string name="label_account_number">Número da Conta</string>
+    <string name="text_input_account_number">Digite o número da conta</string>
+    <string name="label_name_client">Nome do cliente</string>
+    <string name="text_input_name_client">Digite o nome do cliente</string>
+    <string name="label_cpf_client">CPF do cliente</string>
+    <string name="text_input_cpf_client">Digite o CPF do cliente</string>
+    <string name="label_initial_balance">Saldo inicial</string>
+    <string name="text_input_initial_balance">Digite o Saldo inicial da conta</string>
+
+
+    <string name="label_origin_account_number">Número da conta de origem</string>
+    <string name="text_input_origin_account_number">Digite o número da conta de origem</string>
+    <string name="label_forget_account_number">Número da conta de destino</string>
+    <string name="text_input_forget_account_number">Digite o número da conta de destino</string>
+    <string name="label_value_transaction">Valor da transação</string>
+    <string name="text_input_value_transaction">Digite o o valor da transação</string>
+    <string name="text_button_transaction">Realizar transação</string>
+    <string name="text_button_add_account">Adicionar conta</string>
+    <string name="label_search_value">Termo para a pesquisa</string>
+    <string name="label_search_radio">Selecione um opção</string>
+    <string name="text_radio_name">Nome do cliente</string>
+    <string name="text_radio_cpf">CPF</string>
+    <string name="text_radio_account">Número da conta</string>
+
+    <string name="text_button_search">Realizar pesquisa</string>
+    <string name="text_button_update">Atualizar conta</string>
+    <string name="text_button_delete">Excluir conta</string>
+
+    <string name="title_add_account">CONTAS DO BANCO</string>
+    <string name="title_insert_account">ADICIONAR CONTA</string>
 </resources>

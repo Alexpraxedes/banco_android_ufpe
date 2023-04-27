@@ -1,21 +1,18 @@
 package br.ufpe.cin.residencia.banco;
 
-import static android.content.ContentValues.TAG;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.text.NumberFormat;
-import java.util.List;
 
 import br.ufpe.cin.residencia.banco.cliente.ClientesActivity;
-import br.ufpe.cin.residencia.banco.conta.Conta;
 import br.ufpe.cin.residencia.banco.conta.ContasActivity;
 
 //Ver anotações TODO no código
@@ -28,12 +25,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         viewModel = new ViewModelProvider(this).get(BancoViewModel.class);
 
-        Button contas = findViewById(R.id.btnContas);
-        Button clientes = findViewById(R.id.btnClientes);
-        Button transferir = findViewById(R.id.btnTransferir);
-        Button debitar = findViewById(R.id.btnDebitar);
-        Button creditar = findViewById(R.id.btnCreditar);
-        Button pesquisar = findViewById(R.id.btnPesquisar);
+        LinearLayout contas = findViewById(R.id.btn_accounts);
+        LinearLayout clientes = findViewById(R.id.btn_clients);
+
+        RelativeLayout transferir = findViewById(R.id.rl_transfer_money);
+        RelativeLayout debitar = findViewById(R.id.rl_debit_money);
+        RelativeLayout creditar = findViewById(R.id.rl_credit_money);
+
+        LinearLayout pesquisar = findViewById(R.id.btn_search);
         TextView totalBanco = findViewById(R.id.totalDinheiroBanco);
 
         //Remover a linha abaixo se for implementar a parte de Clientes
