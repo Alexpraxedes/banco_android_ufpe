@@ -35,7 +35,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
             android:layout_toEndOf="@+id/img_user"
-            android:text="Nome do usuário"
+            android:text="Alex Praxedes Silveira"
             android:textColor="@color/neutral"
             android:textSize="20sp" />
 
