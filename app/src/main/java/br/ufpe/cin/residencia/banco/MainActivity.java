@@ -27,13 +27,14 @@ public class MainActivity extends AppCompatActivity {
 
         LinearLayout contas = findViewById(R.id.btn_accounts);
         LinearLayout clientes = findViewById(R.id.btn_clients);
-
         RelativeLayout transferir = findViewById(R.id.rl_transfer_money);
         RelativeLayout debitar = findViewById(R.id.rl_debit_money);
         RelativeLayout creditar = findViewById(R.id.rl_credit_money);
-
         LinearLayout pesquisar = findViewById(R.id.btn_search);
         TextView totalBanco = findViewById(R.id.totalDinheiroBanco);
+        TextView totalClientes = findViewById(R.id.text_total_clients);
+        TextView totalContas = findViewById(R.id.text_total_accounts);
+        TextView totalTransacoes = findViewById(R.id.text_total_transactions);
 
         //Remover a linha abaixo se for implementar a parte de Clientes
         clientes.setEnabled(false);
@@ -62,6 +63,15 @@ public class MainActivity extends AppCompatActivity {
                 listaContas -> {
                     double saldoBanco = viewModel.saldoTotalBanco();
                     totalBanco.setText("R"+NumberFormat.getCurrencyInstance().format(saldoBanco));
+
+                    int totalDeClientes = viewModel.totalClientes();
+                    totalClientes.setText(totalDeClientes+"");
+
+                    int totalDeContas = viewModel.totalContas();
+                    totalContas.setText(totalDeContas+"");
+
+                    int totalDeTransacoes = viewModel.totalTransacoes();
+                    totalTransacoes.setText(totalDeTransacoes+"");
                 }
         );
     }

@@ -37,6 +37,18 @@ public class BancoViewModel extends AndroidViewModel {
         return saldoTotal;
     }
 
+    public int totalClientes() {
+        return this.contas.getValue().size();
+    }
+
+    public int totalContas() {
+        return this.contas.getValue().size();
+    }
+
+    public int totalTransacoes() {
+        return 17;
+    }
+
     void transferir(String numeroContaOrigem, String numeroContaDestino, double valor) {
         new Thread( () -> {
             List<Conta> contas = (List<Conta>) this.repository.buscarPeloNumero(numeroContaOrigem);

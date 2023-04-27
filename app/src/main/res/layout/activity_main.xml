@@ -116,7 +116,7 @@
                     android:background="@drawable/shape_secondary"
                     android:paddingVertical="5dp"
                     android:textAlignment="center"
-                    android:textColor="@color/neutral_light"
+                    android:textColor="@color/neutral"
                     android:textSize="12sp"
                     tools:text="72" />
                 <TextView
@@ -152,7 +152,7 @@
                     android:background="@drawable/shape_secondary"
                     android:paddingVertical="5dp"
                     android:textAlignment="center"
-                    android:textColor="@color/neutral_light"
+                    android:textColor="@color/neutral"
                     android:textSize="12sp"
                     tools:text="72" />
                 <TextView
@@ -190,7 +190,7 @@
                     android:background="@drawable/shape_secondary"
                     android:paddingVertical="5dp"
                     android:textAlignment="center"
-                    android:textColor="@color/neutral_light"
+                    android:textColor="@color/neutral"
                     android:textSize="12sp"
                     tools:text="72" />
                 <TextView
