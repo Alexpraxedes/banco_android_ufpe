@@ -1,14 +1,12 @@
 package br.ufpe.cin.residencia.banco;
 
 import android.app.Application;
-import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import br.ufpe.cin.residencia.banco.conta.Conta;
@@ -51,12 +49,12 @@ public class BancoViewModel extends AndroidViewModel {
 
     void transferir(String numeroContaOrigem, String numeroContaDestino, double valor) {
         new Thread( () -> {
-            List<Conta> contas = (List<Conta>) this.repository.buscarPeloNumero(numeroContaOrigem);
+            List<Conta> contas = this.repository.buscarPeloNumero(numeroContaOrigem);
             Conta contaOrigem = contas.get(0);
             contaOrigem.debitar(valor);
             this.repository.atualizar(contaOrigem);
 
-            contas = (List<Conta>) this.repository.buscarPeloNumero(numeroContaDestino);
+            contas = this.repository.buscarPeloNumero(numeroContaDestino);
             Conta contaDestino = contas.get(0);
             contaDestino.creditar(valor);
             this.repository.atualizar(contaDestino);
@@ -65,7 +63,7 @@ public class BancoViewModel extends AndroidViewModel {
 
     void creditar(String numeroConta, double valor) {
         new Thread( () -> {
-            List<Conta> contas = (List<Conta>) this.repository.buscarPeloNumero(numeroConta);
+            List<Conta> contas = this.repository.buscarPeloNumero(numeroConta);
             Conta conta = contas.get(0);
             conta.creditar(valor);
             this.repository.atualizar(conta);
@@ -74,7 +72,7 @@ public class BancoViewModel extends AndroidViewModel {
 
     void debitar(String numeroConta, double valor) {
         new Thread( () -> {
-            List<Conta> contas = (List<Conta>) this.repository.buscarPeloNumero(numeroConta);
+            List<Conta> contas = this.repository.buscarPeloNumero(numeroConta);
             Conta conta = contas.get(0);
             conta.debitar(valor);
             this.repository.atualizar(conta);
@@ -101,5 +99,4 @@ public class BancoViewModel extends AndroidViewModel {
             _listaContasAtual.postValue(listaContas);
         } ).start();
     }
-
 }

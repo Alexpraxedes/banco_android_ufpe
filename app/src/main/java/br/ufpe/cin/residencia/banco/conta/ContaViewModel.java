@@ -41,28 +41,6 @@ public class ContaViewModel extends AndroidViewModel {
         ).start();
     }
 
-    void listar() {
-        new Thread( () -> {
-            List<Conta> contas = this.repository.getContas().getValue();
-            assert contas != null;
-            _contaAtual.postValue(contas.get(0));
-        });
-    }
-
-    void buscarPeloNome(String nomeCliente) {
-        new Thread( () -> {
-            List<Conta> contas = this.repository.buscarPeloNome(nomeCliente);
-            _contaAtual.postValue(contas.get(0));
-        }).start();
-    }
-
-    void buscarPeloCPF(String cpfCliente) {
-        new Thread( () -> {
-            List<Conta> contas = this.repository.buscarPeloCPF(cpfCliente);
-            _contaAtual.postValue(contas.get(0));
-        }).start();
-    }
-
     void buscarPeloNumero(String numeroConta) {
         new Thread( () -> {
             List<Conta> contas = this.repository.buscarPeloNumero(numeroConta);

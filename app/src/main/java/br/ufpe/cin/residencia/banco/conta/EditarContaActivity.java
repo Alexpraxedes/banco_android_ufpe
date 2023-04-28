@@ -30,8 +30,8 @@ public class EditarContaActivity extends AppCompatActivity {
         EditText campoSaldo = findViewById(R.id.saldo);
         EditText campoNome = findViewById(R.id.nome);
         EditText campoCPF = findViewById(R.id.cpf);
-        campoNumero.setEnabled(false);
         btnAtualizar.setText("Editar");
+        campoNumero.setEnabled(false);
 
         Intent intent = getIntent();
         String numeroConta = intent.getStringExtra(KEY_NUMERO_CONTA);

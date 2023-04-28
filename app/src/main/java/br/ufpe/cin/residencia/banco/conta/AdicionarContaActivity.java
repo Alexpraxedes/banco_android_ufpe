@@ -38,21 +38,31 @@ public class AdicionarContaActivity extends AppCompatActivity {
                     String numeroConta = campoNumero.getText().toString();
                     String saldoConta = campoSaldo.getText().toString();
 
-                    if(numeroConta.length() != 6){
+                    if(numeroConta.isEmpty()){
+                        campoNumero.setError("Número da conta não pode ser vazio");
+                        return;
+                    }else if(numeroConta.length() != 6){
                         campoNumero.setError("Número da conta deve ter 6 caracteres");
                         return;
                     }
-                    if(nomeCliente.length() < 5){
+
+                    if(nomeCliente.isEmpty()){
+                        campoNome.setError("Nome não pode ser vazio");
+                        return;
+                    }else if(nomeCliente.length() < 5){
                         campoNome.setError("Nome deve ter pelo menos 5 caracteres");
                         return;
                     }
 
-                    if(cpfCliente.length() != 11){
+                    if(cpfCliente.isEmpty()){
+                        campoCPF.setError("CPF não pode ser vazio");
+                        return;
+                    }else if(cpfCliente.length() != 11){
                         campoCPF.setError("CPF deve ter 11 caracteres");
                         return;
                     }
 
-                    if(saldoConta.length() == 0){
+                    if(saldoConta.isEmpty()){
                         campoSaldo.setError("Saldo não pode ser vazio");
                         return;
                     }

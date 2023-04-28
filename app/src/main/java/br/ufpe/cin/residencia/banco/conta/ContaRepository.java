@@ -33,10 +33,6 @@ public class ContaRepository {
         dao.remover(c);
     }
 
-    public List<Conta> ListarContas() {
-        return dao.contas().getValue();
-    }
-
     @WorkerThread
     public List<Conta> buscarPeloNome(String nomeCliente) {
         return dao.buscarPeloNome(nomeCliente);
