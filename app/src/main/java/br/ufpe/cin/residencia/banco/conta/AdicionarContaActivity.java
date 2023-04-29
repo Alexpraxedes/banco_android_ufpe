@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import br.ufpe.cin.residencia.banco.UtilsMasks;
 import br.ufpe.cin.residencia.banco.R;
 
 //Ver anotações TODO no código
@@ -28,6 +29,9 @@ public class AdicionarContaActivity extends AppCompatActivity {
         EditText campoCPF = findViewById(R.id.cpf);
         EditText campoSaldo = findViewById(R.id.saldo);
 
+        campoCPF.addTextChangedListener(UtilsMasks.cpfMask(campoCPF));
+        campoNumero.addTextChangedListener(UtilsMasks.contaMask(campoNumero));
+
         btnAtualizar.setText("Inserir");
         btnRemover.setVisibility(View.GONE);
 
@@ -41,8 +45,8 @@ public class AdicionarContaActivity extends AppCompatActivity {
                     if(numeroConta.isEmpty()){
                         campoNumero.setError("Número da conta não pode ser vazio");
                         return;
-                    }else if(numeroConta.length() != 6){
-                        campoNumero.setError("Número da conta deve ter 6 caracteres");
+                    }else if(numeroConta.length() != 8){
+                        campoNumero.setError("Número da conta deve ter 7 caracteres");
                         return;
                     }
 
@@ -57,7 +61,7 @@ public class AdicionarContaActivity extends AppCompatActivity {
                     if(cpfCliente.isEmpty()){
                         campoCPF.setError("CPF não pode ser vazio");
                         return;
-                    }else if(cpfCliente.length() != 11){
+                    }else if(cpfCliente.length() != 14){
                         campoCPF.setError("CPF deve ter 11 caracteres");
                         return;
                     }

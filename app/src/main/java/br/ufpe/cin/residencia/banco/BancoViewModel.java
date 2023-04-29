@@ -21,6 +21,10 @@ public class BancoViewModel extends AndroidViewModel {
     private MutableLiveData<List<Conta>> _listaContasAtual = new MutableLiveData<>();
     public LiveData<List<Conta>> listaContasAtual = _listaContasAtual;
 
+    public static boolean status = false;
+    private MutableLiveData<String> __erroMsg = new MutableLiveData<>();
+    public LiveData<String> erroMsg = __erroMsg;
+
     public BancoViewModel(@NonNull Application application) {
         super(application);
         this.repository = new ContaRepository(BancoDB.getDB(application).contaDAO());
@@ -51,11 +55,13 @@ public class BancoViewModel extends AndroidViewModel {
         new Thread( () -> {
             List<Conta> contas = this.repository.buscarPeloNumero(numeroContaOrigem);
             Conta contaOrigem = contas.get(0);
+            validarConta(contaOrigem.numero, "Conta de origem não existe");
             contaOrigem.debitar(valor);
             this.repository.atualizar(contaOrigem);
 
             contas = this.repository.buscarPeloNumero(numeroContaDestino);
             Conta contaDestino = contas.get(0);
+            validarConta(contaDestino.numero, "Conta de destino não existe");
             contaDestino.creditar(valor);
             this.repository.atualizar(contaDestino);
         } ).start();
@@ -65,6 +71,7 @@ public class BancoViewModel extends AndroidViewModel {
         new Thread( () -> {
             List<Conta> contas = this.repository.buscarPeloNumero(numeroConta);
             Conta conta = contas.get(0);
+            validarConta(conta.numero, "Conta não existe");
             conta.creditar(valor);
             this.repository.atualizar(conta);
         } ).start();
@@ -74,6 +81,7 @@ public class BancoViewModel extends AndroidViewModel {
         new Thread( () -> {
             List<Conta> contas = this.repository.buscarPeloNumero(numeroConta);
             Conta conta = contas.get(0);
+            validarConta(conta.numero, "Conta não existe");
             conta.debitar(valor);
             this.repository.atualizar(conta);
         } ).start();
@@ -97,6 +105,19 @@ public class BancoViewModel extends AndroidViewModel {
         new Thread( () -> {
             List<Conta> listaContas = this.repository.buscarPeloNumero(numeroConta);
             _listaContasAtual.postValue(listaContas);
+        } ).start();
+    }
+
+    void validarConta(String numeroConta, String msgErro) {
+        new Thread( () -> {
+            List<Conta> listaContas = this.repository.buscarPeloNumero(numeroConta);
+            if(listaContas.isEmpty()) {
+                __erroMsg.postValue(msgErro);
+                status = false;
+                return;
+            }
+            _contas.postValue(listaContas.get(0));
+            status = true;
         } ).start();
     }
 }

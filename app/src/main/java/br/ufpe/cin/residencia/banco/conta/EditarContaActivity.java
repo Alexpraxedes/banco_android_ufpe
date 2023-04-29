@@ -1,7 +1,6 @@
 package br.ufpe.cin.residencia.banco.conta;
 
-import static android.content.ContentValues.TAG;
-
+import br.ufpe.cin.residencia.banco.UtilsMasks;
 import br.ufpe.cin.residencia.banco.R;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,7 +9,6 @@ import androidx.lifecycle.ViewModelProvider;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -32,6 +30,10 @@ public class EditarContaActivity extends AppCompatActivity {
         EditText campoCPF = findViewById(R.id.cpf);
         btnAtualizar.setText("Editar");
         campoNumero.setEnabled(false);
+
+        campoCPF.addTextChangedListener(UtilsMasks.cpfMask(campoCPF));
+        campoNumero.addTextChangedListener(UtilsMasks.contaMask(campoNumero));
+
 
         Intent intent = getIntent();
         String numeroConta = intent.getStringExtra(KEY_NUMERO_CONTA);
@@ -60,6 +62,12 @@ public class EditarContaActivity extends AppCompatActivity {
                 if (cpfCliente.isEmpty()) {
                     campoCPF.setError("Campo obrigatório");
                     campoCPF.requestFocus();
+                    return;
+                }
+
+                if(numeroConta.length() != 8){
+                    campoNumero.setError("Número da conta deve ter 7 caracteres");
+                    campoNumero.requestFocus();
                     return;
                 }
 

@@ -33,6 +33,28 @@ public class PesquisarActivity extends AppCompatActivity {
         rvResultado.setLayoutManager(new LinearLayoutManager(this));
         rvResultado.setAdapter(adapter);
 
+        tipoPesquisa.setOnCheckedChangeListener(
+            (group, checkedId) -> {
+                aPesquisar.setText("");
+
+                switch (checkedId) {
+                    case R.id.peloNomeCliente:
+                        aPesquisar.setHint("Digite o nome do cliente");
+                        break;
+
+                    case R.id.peloCPFcliente:
+                        aPesquisar.setHint("Digite o CPF do cliente");
+                        aPesquisar.addTextChangedListener(UtilsMasks.cpfMask(aPesquisar));
+                        break;
+
+                    case R.id.peloNumeroConta:
+                        aPesquisar.setHint("Digite o número da conta");
+                        aPesquisar.addTextChangedListener(UtilsMasks.contaMask(aPesquisar));
+                        break;
+                }
+            }
+        );
+
         btnPesquisar.setOnClickListener(
             v -> {
                 String oQueFoiDigitado = aPesquisar.getText().toString();
