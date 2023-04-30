@@ -14,9 +14,15 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="Theme.Banco.SplashScreen">
+    <style name="Theme.Banco.SplashScreen_1">
         <item name="windowNoTitle">true</item>
-        <item name="android:windowBackground">@drawable/bg_splash_screen</item>
+        <item name="android:windowBackground">@drawable/bg_splash_screen_1</item>
+        <item name="android:statusBarColor" tools:targetApi="l">@color/primary</item>
+    </style>
+
+    <style name="Theme.Banco.SplashScreen_2">
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowBackground">@drawable/bg_splash_screen_2</item>
         <item name="android:statusBarColor" tools:targetApi="l">@color/primary</item>
     </style>
 </resources>

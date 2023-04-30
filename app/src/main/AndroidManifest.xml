@@ -38,10 +38,13 @@
         <activity
             android:name=".MainActivity"
             android:exported="false" />
+        <activity android:name=".splash.Screen2Activity"
+            android:exported="false"
+            android:theme="@style/Theme.Banco.SplashScreen_2" />
         <activity
-            android:name=".SplashScreenActivity"
+            android:name=".splash.Screen1Activity"
             android:exported="true"
-            android:theme="@style/Theme.Banco.SplashScreen">
+            android:theme="@style/Theme.Banco.SplashScreen_1">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
