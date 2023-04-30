@@ -19,9 +19,9 @@ public abstract class BancoDB extends RoomDatabase {
     public synchronized static BancoDB getDB(Context c) {
         if (INSTANCE == null) {
             INSTANCE = Room.databaseBuilder(
-                    c,
-                    BancoDB.class,
-                    DB_NAME
+                c,
+                BancoDB.class,
+                DB_NAME
             ).build();
         }
         return INSTANCE;
