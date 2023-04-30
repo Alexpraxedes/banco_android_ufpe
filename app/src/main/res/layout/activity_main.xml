@@ -61,6 +61,7 @@
         android:layout_marginTop="16dp"
         android:background="@drawable/shape_primary"
         android:padding="12dp"
+        android:elevation="1dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rl_top"
@@ -239,7 +240,7 @@
 
             <RelativeLayout
                 android:id="@+id/rl_transfer_money"
-                android:layout_width="64dp"
+                android:layout_width="66dp"
                 android:layout_marginStart="16dp"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="40dp">
@@ -248,6 +249,7 @@
                     android:layout_width="56dp"
                     android:layout_height="56dp"
                     android:layout_marginStart="3dp"
+                    android:elevation="1dp"
                     android:background="@drawable/shape_btn_secondary"
                     android:padding="10dp"
                     android:src="@drawable/ic_transfer" />
@@ -269,7 +271,7 @@
 
             <RelativeLayout
                 android:id="@+id/rl_credit_money"
-                android:layout_width="137dp"
+                android:layout_width="130dp"
                 android:layout_height="71dp"
                 android:layout_marginStart="28dp"
                 android:layout_marginEnd="42dp"
@@ -281,6 +283,7 @@
                     android:layout_width="56dp"
                     android:layout_height="56dp"
                     android:layout_centerHorizontal="true"
+                    android:elevation="1dp"
                     android:background="@drawable/shape_btn_secondary"
                     android:paddingTop="8dp"
                     android:paddingBottom="12dp"
@@ -304,13 +307,14 @@
 
             <RelativeLayout
                 android:id="@+id/rl_debit_money"
-                android:layout_width="52dp"
+                android:layout_width="58dp"
                 android:layout_height="match_parent"
                 android:layout_alignParentEnd="true"
                 android:layout_marginLeft="32dp"
                 android:layout_marginEnd="40dp">
                 <ImageView
                     android:id="@+id/btn_debit_money"
+                    android:elevation="1dp"
                     android:layout_width="56dp"
                     android:layout_height="56dp"
                     android:background="@drawable/shape_btn_secondary"
@@ -350,6 +354,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
+            android:paddingLeft="8dp"
+            android:elevation="1dp"
             android:background="@drawable/shape_white"
             android:orientation="horizontal">
 
@@ -376,7 +382,9 @@
         <LinearLayout
             android:id="@+id/btn_accounts"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="wrap_content"
+            android:elevation="1dp"
+            android:paddingLeft="8dp"
             android:layout_marginBottom="24dp"
             android:background="@drawable/shape_white"
             android:orientation="horizontal">
@@ -404,7 +412,9 @@
         <LinearLayout
             android:id="@+id/btn_search"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="wrap_content"
+            android:elevation="1dp"
+            android:paddingLeft="8dp"
             android:background="@drawable/shape_white"
             android:orientation="horizontal">
 

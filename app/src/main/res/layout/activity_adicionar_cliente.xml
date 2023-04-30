@@ -3,39 +3,70 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="5dp">
+    android:background="@color/background"
+    android:padding="16dp">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/tipoOperacao"
+        android:layout_width="368dp"
         android:layout_height="wrap_content"
-        android:text="Nome"
-        android:textSize="24sp" />
+        android:layout_margin="5dp"
+        android:text="@string/title_insert_client"
+        android:textAlignment="center"
+        android:textColor="@color/neutral"
+        android:textSize="20sp" />
 
-    <EditText
-        android:id="@+id/nome"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:fontFamily="sans-serif-light"
-        android:hint="Digite um nome"
-        android:minHeight="48dp"
-        android:textSize="18sp" />
+        android:layout_marginTop="24dp"
+        android:elevation="1dp"
+        android:layout_marginBottom="12dp"
+        android:padding="8dp"
+        android:background="@drawable/shape_white"
+        android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="CPF"
-        android:textSize="24sp" />
-    <EditText
-        android:id="@+id/cpf"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nome completo"
+            android:textColor="@color/primary"
+            android:textSize="12sp" />
+
+        <EditText
+            android:id="@+id/nome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-light"
+            android:hint="Digite um nome"
+            android:minHeight="48dp"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:fontFamily="sans-serif-light"
-        android:hint="Digite um CPF"
-        android:minHeight="48dp"
-        android:textSize="18sp" />
-
+        android:layout_marginBottom="12dp"
+        android:padding="8dp"
+        android:elevation="1dp"
+        android:background="@drawable/shape_white"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Número do CPF"
+            android:textColor="@color/primary"
+            android:textSize="12sp" />
+        <EditText
+            android:id="@+id/cpf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-light"
+            android:hint="Digite um CPF válido"
+            android:minHeight="48dp"
+            android:textSize="16sp" />
+    </LinearLayout>
 
 
     <Button

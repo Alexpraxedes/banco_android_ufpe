@@ -40,4 +40,7 @@
 
     <string name="title_add_account">CONTAS DO BANCO</string>
     <string name="title_insert_account">ADICIONAR CONTA</string>
+
+    <string name="title_add_client">CLIENTES DO BANCO</string>
+    <string name="title_insert_client">ADICIONAR CLIENTE</string>
 </resources>
