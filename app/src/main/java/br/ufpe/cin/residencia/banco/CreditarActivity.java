@@ -30,6 +30,9 @@ public class CreditarActivity extends AppCompatActivity {
         numeroContaDestino.setVisibility(View.GONE);
         valorOperacao.setHint(valorOperacao.getHint() + " creditado");
 
+        numeroContaOrigem.addTextChangedListener(UtilsMasks.contaMask(numeroContaOrigem));
+        numeroContaDestino.addTextChangedListener(UtilsMasks.contaMask(numeroContaDestino));
+
         campoContaDestino.setVisibility(View.GONE);
         tipoOperacao.setText("CREDITAR");
         btnOperacao.setText("Creditar");

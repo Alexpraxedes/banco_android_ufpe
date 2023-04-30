@@ -27,6 +27,9 @@ public class DebitarActivity extends AppCompatActivity {
         EditText valorOperacao = findViewById(R.id.valor);
         Button btnOperacao = findViewById(R.id.btnOperacao);
 
+        numeroContaOrigem.addTextChangedListener(UtilsMasks.contaMask(numeroContaOrigem));
+        numeroContaDestino.addTextChangedListener(UtilsMasks.contaMask(numeroContaDestino));
+
         labelContaDestino.setVisibility(View.GONE);
         numeroContaDestino.setVisibility(View.GONE);
         campoContaDestino.setVisibility(View.GONE);
