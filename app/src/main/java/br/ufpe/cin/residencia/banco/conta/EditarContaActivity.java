@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 public class EditarContaActivity extends AppCompatActivity {
     public static final String KEY_NUMERO_CONTA = "numeroConta";
@@ -22,17 +23,17 @@ public class EditarContaActivity extends AppCompatActivity {
         setContentView(R.layout.activity_adicionar_conta);
         viewModel = new ViewModelProvider(this).get(ContaViewModel.class);
 
+        TextView titulo = findViewById(R.id.tipoOperacao);
         Button btnAtualizar = findViewById(R.id.btnAtualizar);
         Button btnRemover = findViewById(R.id.btnRemover);
         EditText campoNumero = findViewById(R.id.numero);
         EditText campoSaldo = findViewById(R.id.saldo);
         EditText campoNome = findViewById(R.id.nome);
         EditText campoCPF = findViewById(R.id.cpf);
+
+        titulo.setText("Editar Conta");
         btnAtualizar.setText("Editar");
         campoNumero.setEnabled(false);
-
-        campoCPF.addTextChangedListener(UtilsMasks.cpfMask(campoCPF));
-        campoNumero.addTextChangedListener(UtilsMasks.contaMask(campoNumero));
 
 
         Intent intent = getIntent();
@@ -45,6 +46,9 @@ public class EditarContaActivity extends AppCompatActivity {
             campoCPF.setText(conta.cpfCliente);
             campoSaldo.setText(String.valueOf(conta.saldo));
         });
+
+        campoCPF.addTextChangedListener(UtilsMasks.cpfMask(campoCPF));
+        campoNumero.addTextChangedListener(UtilsMasks.contaMask(campoNumero));
 
         btnAtualizar.setOnClickListener(
             v -> {
