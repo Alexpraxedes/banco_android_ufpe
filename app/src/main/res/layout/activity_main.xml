@@ -133,7 +133,7 @@
                     android:text="@string/title_clients"
                     android:textAlignment="center"
                     android:textColor="@color/white"
-                    android:textSize="8sp" />
+                    android:textSize="10sp" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -169,7 +169,7 @@
                     android:text="@string/title_accounts"
                     android:textAlignment="center"
                     android:textColor="@color/white"
-                    android:textSize="8sp" />
+                    android:textSize="10sp" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -207,7 +207,7 @@
                     android:text="@string/title_transactions"
                     android:textAlignment="center"
                     android:textColor="@color/white"
-                    android:textSize="8sp" />
+                    android:textSize="10sp" />
             </RelativeLayout>
         </RelativeLayout>
     </RelativeLayout>
